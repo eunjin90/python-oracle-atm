@@ -17,9 +17,13 @@
       --accent: #78a9ff;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -29,7 +33,10 @@
       line-height: 1.8;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .wrap {
       width: min(1060px, 90%);
@@ -48,7 +55,9 @@
       gap: 16px;
     }
 
-    .logo { font-weight: 800; }
+    .logo {
+      font-weight: 800;
+    }
 
     .nav-link {
       color: var(--muted);
@@ -111,7 +120,9 @@
       transition: 0.2s;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
 
     .btn-primary {
       background: var(--accent);
@@ -119,7 +130,9 @@
       border-color: var(--accent);
     }
 
-    section { padding: 38px 0; }
+    section {
+      padding: 38px 0;
+    }
 
     .section-label {
       color: var(--accent);
@@ -140,18 +153,23 @@
       border-radius: 14px;
     }
 
+    /* 유튜브 영상 반응형 영역 */
     .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       background: #000;
       border: 1px solid var(--line);
       border-radius: 12px;
     }
 
-    video {
-      display: block;
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      max-height: 600px;
-      background: #000;
+      height: 100%;
+      border: 0;
     }
 
     .hint {
@@ -165,9 +183,13 @@
       gap: 16px;
     }
 
-    .feature h3, .resource h3 { margin-top: 0; }
+    .feature h3,
+    .resource h3 {
+      margin-top: 0;
+    }
 
-    .feature p, .resource p {
+    .feature p,
+    .resource p {
       margin-bottom: 0;
       color: var(--muted);
       font-size: 14px;
@@ -179,7 +201,10 @@
       font-weight: 800;
     }
 
-    .resource { display: flex; flex-direction: column; }
+    .resource {
+      display: flex;
+      flex-direction: column;
+    }
 
     .resource .btn {
       align-self: flex-start;
@@ -195,10 +220,33 @@
     }
 
     @media (max-width: 650px) {
-      .hero { padding: 55px 0 35px; }
-      .grid { grid-template-columns: 1fr; }
-      .panel { padding: 18px; }
-      h2 { font-size: 23px; }
+      .hero {
+        padding: 55px 0 35px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        padding: 18px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+
+      .logo {
+        font-size: 14px;
+      }
+
+      .nav-link {
+        font-size: 12px;
+      }
+
+      .intro {
+        font-size: 15px;
+      }
     }
   </style>
 </head>
@@ -213,8 +261,11 @@
 
   <main id="top">
     <div class="wrap">
+
+      <!-- 메인 소개 -->
       <section class="hero">
         <div class="eyebrow">PYTHON · ORACLE DATABASE</div>
+
         <h1>DB 연동<br>ATM 시스템</h1>
 
         <p class="intro">
@@ -231,32 +282,55 @@
         </div>
 
         <div class="buttons">
-          <a class="btn btn-primary" href="#demo">▶ 시연 영상 보기</a>
-          <a class="btn" href="https://github.com/eunjin90/python-oracle-atm" target="_blank" rel="noopener noreferrer">GitHub 저장소 ↗</a>
-          <a class="btn" href="#resources">발표 자료 및 코드 ↓</a>
+          <a class="btn btn-primary" href="#demo">
+            ▶ 시연 영상 보기
+          </a>
+
+          <a
+            class="btn"
+            href="https://github.com/eunjin90/python-oracle-atm"
+            target="_blank"
+            rel="noopener noreferrer">
+            GitHub 저장소 ↗
+          </a>
+
+          <a class="btn" href="#resources">
+            발표 자료 및 코드 ↓
+          </a>
         </div>
       </section>
 
+      <!-- 시연 영상 -->
       <section id="demo">
         <div class="section-label">01 / DEMO</div>
         <h2>프로젝트 시연 영상</h2>
 
         <div class="panel">
           <div class="video-frame">
-            <video controls preload="metadata">
-              <source src="assets/atm-demo.mp4" type="video/mp4">
-              브라우저에서 영상을 재생할 수 없습니다.
-            </video>
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/tMAhJry5Gi4"
+              title="DB 연동 ATM 시스템 시연 영상"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
           </div>
+
           <p class="hint">
-            재생 버튼을 눌러 ATM 프로그램의 실행 과정과 주요 기능을 확인하세요.
+            Python과 Oracle Database를 연동한 ATM 시스템의 실제 시연 영상입니다.
           </p>
-          <a class="btn" href="assets/atm-demo.mp4" target="_blank" rel="noopener noreferrer">
-            영상 파일 직접 열기 ↗
+
+          <a
+            class="btn"
+            href="https://youtu.be/tMAhJry5Gi4"
+            target="_blank"
+            rel="noopener noreferrer">
+            YouTube에서 시연 영상 보기 ↗
           </a>
         </div>
       </section>
 
+      <!-- 주요 기능 -->
       <section id="features">
         <div class="section-label">02 / FEATURES</div>
         <h2>주요 구현 기능</h2>
@@ -265,41 +339,56 @@
           <article class="panel feature">
             <div class="number">FEATURE 01</div>
             <h3>회원 관리</h3>
-            <p>회원가입과 로그인을 통해 사용자 정보를 관리합니다.</p>
+            <p>
+              회원가입과 로그인을 통해 사용자 정보를 관리합니다.
+            </p>
           </article>
 
           <article class="panel feature">
             <div class="number">FEATURE 02</div>
             <h3>계좌 관리</h3>
-            <p>계좌 개설, 계좌 선택, 계좌 잔액 조회 기능을 구현했습니다.</p>
+            <p>
+              계좌 개설, 계좌 선택, 계좌 잔액 조회 기능을 구현했습니다.
+            </p>
           </article>
 
           <article class="panel feature">
             <div class="number">FEATURE 03</div>
             <h3>금융 거래</h3>
-            <p>입금, 출금, 계좌 간 이체 기능을 구현했습니다.</p>
+            <p>
+              입금, 출금, 계좌 간 이체 기능을 구현했습니다.
+            </p>
           </article>
 
           <article class="panel feature">
             <div class="number">FEATURE 04</div>
             <h3>거래내역 조회</h3>
-            <p>데이터베이스에 저장된 거래 기록을 조회할 수 있습니다.</p>
+            <p>
+              데이터베이스에 저장된 거래 기록을 조회할 수 있습니다.
+            </p>
           </article>
         </div>
       </section>
 
+      <!-- 프로젝트 자료 -->
       <section id="resources">
         <div class="section-label">03 / RESOURCES</div>
         <h2>프로젝트 자료</h2>
 
         <div class="grid">
+
           <article class="panel resource">
             <div class="number">SOURCE CODE</div>
             <h3>Python 소스 코드</h3>
-            <p>프로그램의 기능별 코드와 데이터베이스 연동 구조를 확인할 수 있습니다.</p>
-            <a class="btn btn-primary"
-               href="https://github.com/eunjin90/python-oracle-atm/tree/main/src"
-               target="_blank" rel="noopener noreferrer">
+            <p>
+              프로그램의 기능별 코드와 데이터베이스 연동 구조를 확인할 수 있습니다.
+            </p>
+
+            <a
+              class="btn btn-primary"
+              href="https://github.com/eunjin90/python-oracle-atm/tree/main/src"
+              target="_blank"
+              rel="noopener noreferrer">
               소스 코드 확인 ↗
             </a>
           </article>
@@ -307,10 +396,15 @@
           <article class="panel resource">
             <div class="number">PRESENTATION</div>
             <h3>프로젝트 발표 자료</h3>
-            <p>프로젝트의 구성과 구현 내용을 정리한 발표 자료입니다.</p>
-            <a class="btn"
-               href="docs/atm-presentation.pptx"
-               target="_blank" rel="noopener noreferrer">
+            <p>
+              프로젝트의 구성과 구현 내용을 정리한 발표 자료입니다.
+            </p>
+
+            <a
+              class="btn"
+              href="docs/atm-presentation.pptx"
+              target="_blank"
+              rel="noopener noreferrer">
               발표 자료 열기 ↗
             </a>
           </article>
@@ -318,26 +412,38 @@
           <article class="panel resource">
             <div class="number">DEMO VIDEO</div>
             <h3>시연 영상</h3>
-            <p>페이지에서 재생하거나 영상 파일을 별도로 열 수 있습니다.</p>
-            <a class="btn"
-               href="assets/atm-demo.mp4"
-               target="_blank" rel="noopener noreferrer">
-              시연 영상 열기 ↗
+            <p>
+              Python과 Oracle Database를 연동한 ATM 시스템의 실제 시연 영상입니다.
+            </p>
+
+            <a
+              class="btn"
+              href="https://youtu.be/tMAhJry5Gi4"
+              target="_blank"
+              rel="noopener noreferrer">
+              YouTube에서 시연 영상 보기 ↗
             </a>
           </article>
 
           <article class="panel resource">
             <div class="number">REPOSITORY</div>
             <h3>GitHub 프로젝트 저장소</h3>
-            <p>프로젝트 파일과 추가 문서를 확인할 수 있습니다.</p>
-            <a class="btn"
-               href="https://github.com/eunjin90/python-oracle-atm"
-               target="_blank" rel="noopener noreferrer">
+            <p>
+              프로젝트 파일과 추가 문서를 확인할 수 있습니다.
+            </p>
+
+            <a
+              class="btn"
+              href="https://github.com/eunjin90/python-oracle-atm"
+              target="_blank"
+              rel="noopener noreferrer">
               저장소 바로가기 ↗
             </a>
           </article>
+
         </div>
       </section>
+
     </div>
   </main>
 
